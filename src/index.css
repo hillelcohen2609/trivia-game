@@ -1,0 +1,98 @@
+body{
+  margin: 0;
+}
+a:-webkit-any-link {
+  color:white;
+  text-decoration:none;
+}
+.circular{
+  margin-left: 40%;
+  margin-top: 10%;
+}
+.green{
+  background-color: greenyellow;
+  margin: auto;
+  width: 70%;
+  height: 5vh;
+  margin-top: 3vh;
+}
+
+.red{
+  background-color: red;
+  margin: auto;
+  width: 70%;
+  height: 5vh;
+  margin-top: 3vh;
+}
+.categorysubmit{
+  font-family: IBM Plex Sans, sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background-color:rgb(154, 13, 154);
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: white;
+  transition : all 150ms ease;
+  cursor: pointer;
+  border: 1px solid;
+  margin: auto;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  
+}
+.quantity{
+  width: 48.6%;
+  height: 7vh;
+}
+.questions{
+  margin: auto;
+  width: 50%;
+  /*height: 60vh;*/
+  padding: 10px;
+  margin-top: 5vh;
+  background-color: rgb(154, 13, 154);
+  color: white;
+  text-align: center;
+  height: 70vh;
+ 
+}
+.answersbtn{
+  margin: auto;
+  width: 70%;
+  height: 5vh;
+  margin-top: 3vh;
+  cursor: pointer;
+  color:rgb(154, 13, 154);  ;
+  
+  
+}
+button{
+  display: block;
+  font-family: IBM Plex Sans, sans-serif;
+  border-radius: 8px;
+  border: 1px solid white;
+  
+}
+.next{
+  margin: auto;
+  
+  margin-top: 5vh;
+  cursor: pointer;
+  background-color:  white;
+  color:rgb(154, 13, 154); 
+  border: 1px solid;
+  padding: 8px 16px;
+}
+.score{
+  text-align: center;
+  color: white;
+  
+}
+.restart{
+  margin: auto;
+  background-color:rgb(154, 13, 154);
+  padding: 8px 16px;
+  border: 1px solid white;
+  margin-top: 5vh;
+}
