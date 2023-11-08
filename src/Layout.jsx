@@ -29,7 +29,7 @@ export default function Layout() {
               <Typography variant='button' component="div" sx={{ flexGrow: 1 }}>
                 <Link to="/">Home</Link>
               </Typography>
-              <Typography variant='button' component="div" sx={{ flexGrow: 1 }}>
+              <Typography variant='button' component="div">
                 <Link to="Options">Options</Link>
               </Typography>
               
