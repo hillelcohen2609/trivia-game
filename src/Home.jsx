@@ -15,6 +15,7 @@ export default function Home() {
             of interesting quizes in subjects that you like. in this website I
             (The devloper) use a trivia API.
           </Typography>
+          <a  className="atag" href="https://opentdb.com/api_config.php">Trivia API</a>
         </Container>
 
         <Link to="/Options">
