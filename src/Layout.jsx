@@ -9,9 +9,11 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet ,useNavigate} from "react-router-dom";
+
 
 export default function Layout() {
+  const navigate = useNavigate()
   return (
     <>
       <nav >
@@ -25,11 +27,15 @@ export default function Layout() {
                 color="inherit"
                 aria-label="menu"
                 sx={{ mr: 2 }}
+                
               ></IconButton>
               <Typography variant='button' component="div" sx={{ flexGrow: 1 }}>
                 <Link to="/">Home</Link>
               </Typography>
-              <Typography variant='button' component="div">
+              <Typography variant='button' component="div" sx={{ flexGrow: 1 }}>
+                <Link to="/Login">Login</Link>
+              </Typography>
+              <Typography variant='button' component="div" >
                 <Link to="Options">Options</Link>
               </Typography>
               

@@ -1,0 +1,34 @@
+.profile{
+    
+    margin: auto;
+    margin-top: 5vh;
+    padding: 5vh 5vh;
+    width: 50%;
+    background-color: rgb(154, 13, 154);
+    color: white;
+}
+.title{
+   text-align: center; 
+
+}
+.nameeverage{
+    display: grid;
+    grid-template-columns:  85% 15%;
+    
+}
+.evarage{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+.testscores{
+    width: 80%;
+    margin: auto;
+    margin-top: 5vh;
+    border-style: solid;
+}
+.scorempty{
+    text-align: center;
+    color: white;
+}

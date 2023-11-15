@@ -16,6 +16,7 @@ import {
   TextField,
   Button,
 } from "@mui/material";
+import LogFirst from "./LogFirst";
 
 const url = "https://opentdb.com/api_category.php";
 
@@ -24,6 +25,7 @@ const Options = () => {
   const [choosenCategory, setChoosenCategory] = useState("");
   const [choosenDifficulty, setChoosenDifficulty] = useState("");
   const [numQ, setNumQ] = useState(10);
+  const valid = sessionStorage.getItem("valid");
 
   useEffect(() => {
     fetch(url)
@@ -48,88 +50,96 @@ const Options = () => {
   }
 
   return (
-    <div>
-      {categories === null && (
-        <div className="circular">
-          <CircularProgress size={"20%"} />
-        </div>
-      )}
+    <>
+      {valid ? (
+        <div className="options">
+          {categories === null && (
+            <div className="circular">
+              <CircularProgress size={"20%"} />
+            </div>
+          )}
 
-      {categories && (
-        <Paper sx={{ width: "60%", ml: "20%", mt: "5%", textAlign: "center" }}>
-          <Typography variant="h4">Choose your quiz.</Typography>
-          <FormControl sx={{ m: 1, minWidth: "50%" }}>
-            <InputLabel id="category">Category</InputLabel>
-            <Select
-              labelId="category"
-              id="category"
-              value={choosenCategory}
-              label="Category"
-              onChange={handleSelectChange}
-              placeholder="choose a category"
+          {categories && (
+            <Paper
+              sx={{ width: "60%", ml: "20%", mt: "5%", textAlign: "center" }}
             >
-              <MenuItem sx={{ width: "100" }} value="">
-                Any
-              </MenuItem>
-              {categories.map((category, index) => {
-                return (
-                  <MenuItem value={category.id} key={index}>
-                    {category.name}
+              <Typography variant="h4">Choose your quiz.</Typography>
+              <FormControl sx={{ m: 1, minWidth: "50%" }}>
+                <InputLabel id="category">Category</InputLabel>
+                <Select
+                  labelId="category"
+                  id="category"
+                  value={choosenCategory}
+                  label="Category"
+                  onChange={handleSelectChange}
+                  placeholder="choose a category"
+                >
+                  <MenuItem sx={{ width: "100" }} value="">
+                    Any
                   </MenuItem>
-                );
-              })}
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
-          <FormControl sx={{ m: 1, minWidth: "50%" }}>
-            <InputLabel id="difficulty">difficulty </InputLabel>
-            <Select
-              labelId="difficulty"
-              id="difficulty"
-              value={choosenDifficulty}
-              label="difficulty"
-              onChange={handleDifficultyChange}
-            >
-              <MenuItem value="">Any</MenuItem>
-              <MenuItem value="easy">Easy</MenuItem>
-              <MenuItem value="medium">Medium</MenuItem>
-              <MenuItem value="hard">Hard</MenuItem>
-            </Select>
-          </FormControl>
-          <br></br>
+                  {categories.map((category, index) => {
+                    return (
+                      <MenuItem value={category.id} key={index}>
+                        {category.name}
+                      </MenuItem>
+                    );
+                  })}
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl sx={{ m: 1, minWidth: "50%" }}>
+                <InputLabel id="difficulty">difficulty </InputLabel>
+                <Select
+                  labelId="difficulty"
+                  id="difficulty"
+                  value={choosenDifficulty}
+                  label="difficulty"
+                  onChange={handleDifficultyChange}
+                >
+                  <MenuItem value="">Any</MenuItem>
+                  <MenuItem value="easy">Easy</MenuItem>
+                  <MenuItem value="medium">Medium</MenuItem>
+                  <MenuItem value="hard">Hard</MenuItem>
+                </Select>
+              </FormControl>
+              <br></br>
 
-          <input
-            type="number"
-            className="quantity"
-            id="quantity"
-            name="quantity"
-            min="1"
-            max="50"
-            onChange={changeNumQ}
-            placeholder="type a number"
-          ></input>
-          <br></br>
-          <Link
-            to="/Options/Questions"
-            state={{
-              difficulty: choosenDifficulty,
-              categoryId: choosenCategory,
-              numberQuestions: numQ,
-            }}
-          >
-            <button
-              className="categorysubmit"
-              disabled={!(numQ > 0 && numQ < 51)}
-            >
-              {" "}
-              Start
-            </button>
-            {/*!(numQ > 0 && numQ < 51)*/}
-          </Link>
-        </Paper>
+              <input
+                type="number"
+                className="quantity"
+                id="quantity"
+                name="quantity"
+                min="1"
+                max="50"
+                onChange={changeNumQ}
+                placeholder="type a number"
+              ></input>
+              <br></br>
+              <Link
+                to="/Options/Questions"
+                state={{
+                  difficulty: choosenDifficulty,
+                  categoryId: choosenCategory,
+                  numberQuestions: numQ,
+                }}
+              >
+                <button
+                  className="categorysubmit"
+                  disabled={!(numQ > 0 && numQ < 51)}
+                >
+                  {" "}
+                  Start
+                </button>
+                {/*!(numQ > 0 && numQ < 51)*/}
+              </Link>
+            </Paper>
+          )}
+        </div>
+      ) : (
+        <LogFirst/>
       )}
-    </div>
+    </>
   );
 };
 

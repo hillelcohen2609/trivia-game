@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Box, Typography, Button, Paper, Container } from "@mui/material";
 export default function Home() {
   return (
-    <Paper elevation={3} style={{ marginTop: "5%" }}>
+    <div className="homepage">
       <Box textAlign={"center"}>
         <Container maxWidth="sm">
           <Typography variant="h3" marginTop="5%">
@@ -17,13 +17,15 @@ export default function Home() {
           </Typography>
           <a  className="atag" href="https://opentdb.com/api_config.php">Trivia API</a>
         </Container>
-
-        <Link to="/Options">
-          <Button color="secondary" variant="contained" marginTop="5%">
+        {/* <Link to="/Option">*/}
+        <Link to="/Login">
+          <Button color="secondary" variant="contained" margintop="5%">
             Try Quiz
           </Button>
         </Link>
       </Box>
-    </Paper>
+    </div>
+      
+    
   );
 }

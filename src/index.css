@@ -1,15 +1,17 @@
-body{
+body {
   margin: 0;
+  background: linear-gradient(90deg, blue, red);
 }
 a:-webkit-any-link {
-  color:white;
-  text-decoration:none;
+  color: white;
+  text-decoration: none;
 }
-.circular{
-  margin-left: 40%;
-  margin-top: 10%;
+
+.circular {
+  margin-left: 45%;
+  margin-top: 30vh;
 }
-.green{
+.green {
   background-color: greenyellow;
   margin: auto;
   width: 70%;
@@ -17,35 +19,34 @@ a:-webkit-any-link {
   margin-top: 3vh;
 }
 
-.red{
+.red {
   background-color: red;
   margin: auto;
   width: 70%;
   height: 5vh;
   margin-top: 3vh;
 }
-.categorysubmit{
+.categorysubmit {
   font-family: IBM Plex Sans, sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.5;
-  background-color:rgb(154, 13, 154);
+  background-color: rgb(154, 13, 154);
   padding: 8px 16px;
   border-radius: 8px;
   color: white;
-  transition : all 150ms ease;
+  transition: all 150ms ease;
   cursor: pointer;
   border: 1px solid;
   margin: auto;
   margin-top: 5vh;
   margin-bottom: 5vh;
-  
 }
-.quantity{
+.quantity {
   width: 48.6%;
   height: 7vh;
 }
-.questions{
+.questions {
   margin: auto;
   width: 50%;
   /*height: 60vh;*/
@@ -55,49 +56,46 @@ a:-webkit-any-link {
   color: white;
   text-align: center;
   height: 70vh;
- 
 }
-.answersbtn{
+.answersbtn {
   margin: auto;
   width: 70%;
   height: 5vh;
   margin-top: 3vh;
   cursor: pointer;
-  color:rgb(154, 13, 154);  ;
-  
-  
+  color: rgb(154, 13, 154);
 }
-button{
+button {
   display: block;
   font-family: IBM Plex Sans, sans-serif;
   border-radius: 8px;
   border: 1px solid white;
-  
 }
-.next{
+.next {
   margin: auto;
-  
+
   margin-top: 5vh;
   cursor: pointer;
-  background-color:  white;
-  color:rgb(154, 13, 154); 
+  background-color: white;
+  color: rgb(154, 13, 154);
   border: 1px solid;
   padding: 8px 16px;
 }
-.score{
+.score {
   text-align: center;
   color: white;
-  
 }
-.restart{
+.restart {
   margin: auto;
-  background-color:rgb(154, 13, 154);
+  background-color: rgb(154, 13, 154);
   padding: 8px 16px;
   border: 1px solid white;
   margin-top: 5vh;
 }
-.atag{
-  background-color:rgb(154, 13, 154);
-  
-  
+.atag {
+  background-color: rgb(154, 13, 154);
 }
+.homepage {
+  color: white;
+}
+

@@ -1,0 +1,20 @@
+.login, .signin{
+    
+    margin: auto;
+    margin-top: 20vh;
+    width: 60vh;
+    
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+    
+    
+}
+#link{
+    color: rgb(20, 18, 127);
+}
+.loginwrapper,.signinwrapper{
+    text-align: center;
+    color: white;
+}

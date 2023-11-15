@@ -69,9 +69,10 @@ export default function Questions() {
           <div className="score">
         {checkAllAnswersClicked === data.length && data.length > 0 && (
           <>
+            {updateUserScores()}
             <Typography variant="h6">Total Score: {score}%</Typography>
             <button className="restart">
-              <Link to="/Options">Restart</Link>
+              <Link to="/Options" >Restart</Link>
             </button>
           </>
         )}
