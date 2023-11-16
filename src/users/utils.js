@@ -25,6 +25,8 @@ export  function getUserByIndex(index){
 export  function addANewUser(jsonUser){
     const index = localStorage.length;
     localStorage.setItem(`${index}`,JSON.stringify(jsonUser))
+    sessionStorage.setItem(`${index}`,JSON.stringify(jsonUser))
+    sessionStorage.setItem("key",`${jsonUser.id}`)
 
 }
 
@@ -40,4 +42,24 @@ export  function verifyIsANameExistInDb(nameU){
         }
     })
     return flug;
+}
+
+//update in ssions storage and in the local storage
+export function updateUserScores(score){
+    let key=sessionStorage.getItem("key");
+    let userStr=sessionStorage.getItem(`${key}`);
+    //need to apdate score in local and sesion
+    let userjson= JSON.parse(userStr);
+    userjson.scores.push(score);
+    
+    //update
+    localStorage.setItem(`${key}`,JSON.stringify(userjson));
+    sessionStorage.setItem(`${key}`,JSON.stringify(userjson));
+    
+}
+
+export function addToLocalStorage(user){
+    sessionStorage.setItem(`${user.id}`,JSON.stringify(user))
+    sessionStorage.setItem("key",`${user.id}`)
+
 }

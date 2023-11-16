@@ -17,6 +17,7 @@ function buildTheUrl(url, category, level) {
   if (level !== "") {
     url = url + `&difficulty=${level}`;
   }
+  console.log(url);
   return url;
 }
 

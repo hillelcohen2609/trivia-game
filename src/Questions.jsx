@@ -4,14 +4,17 @@ import Question from "./Question";
 import { useLocation, Link } from "react-router-dom";
 
 import { CircularProgress, Typography } from "@mui/material";
+import LogFirst from "./LogFirst";
+import { updateUserScores } from "./users/utils";
 
 export default function Questions() {
   const location = useLocation();
   console.log("location: ", location.state);
   let id = 21;
-  const numQ = location.state.numberQuestions;
-  const category = location.state.categoryId;
-  const level = location.state.difficulty;
+  const numQ = location.state !== null ? location.state.numberQuestions : 10;
+  const category = location.state !== null ? location.state.categoryId : "";
+  const level = location.state !== null ? location.state.difficulty : "";
+  const valid = sessionStorage.getItem("valid");
 
   const [data] = useFetch(
     `https://opentdb.com/api.php?amount=${numQ}`,
@@ -47,38 +50,38 @@ export default function Questions() {
 
   return (
     <>
-      {data.length === 0 && (
-        <div className="circular">
-          <CircularProgress size={"20%"} />
-        </div>
-      )}
-      
-      {data.length !== 0 && (
-        <div className="questions">
-          <Question
-            data={data}
-            index={index}
-            key={index}
-            setScoreVal={() => setScoreVal()}
-            updateCount={updateCount}
-            next={next}
-          />
-          
-          
-            
-          <div className="score">
-        {checkAllAnswersClicked === data.length && data.length > 0 && (
-          <>
-            {updateUserScores()}
-            <Typography variant="h6">Total Score: {score}%</Typography>
-            <button className="restart">
-              <Link to="/Options" >Restart</Link>
-            </button>
-          </>
+      {valid?<div>
+        {data.length === 0 && (
+          <div className="circular">
+            <CircularProgress size={"20%"} />
+          </div>
         )}
-      </div>
-        </div>
-      )}
+
+        {data.length !== 0 && (
+          <div className="questions">
+            <Question
+              data={data}
+              index={index}
+              key={index}
+              setScoreVal={() => setScoreVal()}
+              updateCount={updateCount}
+              next={next}
+            />
+
+            <div className="score">
+              {checkAllAnswersClicked === data.length && data.length > 0 && (
+                <>
+                  {updateUserScores(score)}
+                  <Typography variant="h6">Total Score: {score}%</Typography>
+                  <button className="restart">
+                    <Link to="/Options">Restart</Link>
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
+        )}
+      </div>:<LogFirst/>}
     </>
   );
 }

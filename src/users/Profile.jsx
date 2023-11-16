@@ -10,13 +10,23 @@ import TableRow from "@mui/material/TableRow";
 import "./profile.css";
 import { useLocation } from "react-router-dom";
 import { blue } from "@mui/material/colors";
+import LogFirst from "../LogFirst";
 
 const Profile = () => {
-  const { state } = useLocation();
+  
+  const key=sessionStorage.getItem("key");
+  const userStr= sessionStorage.getItem(`${key}`);
+  const user=JSON.parse(userStr);
+  const valid = sessionStorage.getItem("valid");
+  
+  const [imgSrc, setImgSrc] = useState(user?user.src:null);
+  const [scores,setScores] = useState(user?user.scores:null);
+  const [everage,setEverage]= useState(user?clculeavg():null);
+    
+  
+  
  
-  const [imgSrc, setImgSrc] = useState(state.src);
-  const [scores,setScores] = useState(state.scores);
-  const [everage,setEverage]= useState(clculeavg());
+  
 
   function clculeavg(){
     let sum = 0;
@@ -24,12 +34,15 @@ const Profile = () => {
       sum+=score;
       
     });
-    const avg= sum/scores.length;
+    let avg= sum/scores.length;
+    avg= Math.round(avg);
     return(avg>0?avg:sum)
   }
 
   return (
-    <div className="profile">
+    <>
+    {valid ?
+      (<div className="profile">
       <div className="title">
         <Typography variant="h2">Welcome 👋</Typography>
       </div>
@@ -38,7 +51,7 @@ const Profile = () => {
       </div>
       <div className="nameeverage">
         <div className="name">
-          <Typography variant="h3">{state.name}</Typography>
+          <Typography variant="h3">{user.name}</Typography>
         </div>
 
         <div className="evarage">
@@ -76,7 +89,9 @@ const Profile = () => {
         
         {scores.length===0&&<div className="scorempty"><Typography variant="h6">You don't have scores yet</Typography></div>}
       </div>
-    </div>
+    </div>):<LogFirst/>
+    }
+    </>
   );
 };
 

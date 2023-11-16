@@ -26,7 +26,10 @@ export default function Layout() {
                 edge="start"
                 color="inherit"
                 aria-label="menu"
-                sx={{ mr: 2 }}
+                sx={{ mr: 10 }}
+                onClick={()=>{
+                  
+                  navigate("Profile")}}
                 
               ></IconButton>
               <Typography variant='button' component="div" sx={{ flexGrow: 1 }}>
@@ -38,6 +41,9 @@ export default function Layout() {
               <Typography variant='button' component="div" >
                 <Link to="Options">Options</Link>
               </Typography>
+              {/*<Typography variant='button' component="div" >
+                <Link to="Profile">Profile</Link>
+  </Typography>*/}
               
             </Toolbar>
           </AppBar>
