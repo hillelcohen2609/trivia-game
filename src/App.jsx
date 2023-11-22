@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes,HashRouter } from "react-router-dom";
 import Home from "./Home";
 import Layout from "./Layout";
 import PageErr from "./PageErr";
@@ -47,7 +47,7 @@ function App() {
   });
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -60,7 +60,7 @@ function App() {
           <Route path="*" element={<PageErr />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
