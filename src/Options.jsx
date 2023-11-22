@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import Questions from "./Questions";
+import { Link } from "react-router-dom";
 import {
-  Card,
   FormControl,
-  Grid,
   InputLabel,
   MenuItem,
   Select,
   CircularProgress,
   Paper,
-  Box,
   Typography,
-  Autocomplete,
-  TextField,
-  Button,
 } from "@mui/material";
 import LogFirst from "./LogFirst";
 
@@ -117,7 +110,7 @@ const Options = () => {
               ></input>
               <br></br>
               <Link
-                to="/Options/Questions"
+                to="./Questions"
                 state={{
                   difficulty: choosenDifficulty,
                   categoryId: choosenCategory,

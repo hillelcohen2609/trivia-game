@@ -1,0 +1,23 @@
+.adminpage {
+  margin: auto;
+  
+  width: 70%;
+  color: white;
+  justify-content: center;
+}
+.autocomplite {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+.usercontent {
+  margin: auto;
+  margin-top: 5vh;
+  background-color: rgb(154, 13, 154);
+  text-align: left;
+  width: 30vw;
+  padding: 3vh;
+}
+.notad{
+    text-align: center;
+    color: white;
+}

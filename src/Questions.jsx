@@ -50,38 +50,42 @@ export default function Questions() {
 
   return (
     <>
-      {valid?<div>
-        {data.length === 0 && (
-          <div className="circular">
-            <CircularProgress size={"20%"} />
-          </div>
-        )}
-
-        {data.length !== 0 && (
-          <div className="questions">
-            <Question
-              data={data}
-              index={index}
-              key={index}
-              setScoreVal={() => setScoreVal()}
-              updateCount={updateCount}
-              next={next}
-            />
-
-            <div className="score">
-              {checkAllAnswersClicked === data.length && data.length > 0 && (
-                <>
-                  {updateUserScores(score)}
-                  <Typography variant="h6">Total Score: {score}%</Typography>
-                  <button className="restart">
-                    <Link to="/Options">Restart</Link>
-                  </button>
-                </>
-              )}
+      {valid ? (
+        <div>
+          {data.length === 0 && (
+            <div className="circular">
+              <CircularProgress size={"20%"} />
             </div>
-          </div>
-        )}
-      </div>:<LogFirst/>}
+          )}
+
+          {data.length !== 0 && (
+            <div className="questions">
+              <Question
+                data={data}
+                index={index}
+                key={index}
+                setScoreVal={() => setScoreVal()}
+                updateCount={updateCount}
+                next={next}
+              />
+
+              <div className="score">
+                {checkAllAnswersClicked === data.length && data.length > 0 && (
+                  <>
+                    {updateUserScores(score)}
+                    <Typography variant="h6">Total Score: {score}%</Typography>
+                    <button className="restart">
+                      <Link to="/Options">Restart</Link>
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      ) : (
+        <LogFirst />
+      )}
     </>
   );
 }

@@ -1,50 +1,36 @@
-import { Quiz } from "@mui/icons-material";
+
 import {
   AppBar,
+  Avatar,
   Box,
-  Button,
-  IconButton,
-  
   Toolbar,
   Typography,
 } from "@mui/material";
-import React from "react";
-import { Link, Outlet ,useNavigate} from "react-router-dom";
-
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 export default function Layout() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <>
-      <nav >
-        <Box sx={{width:'100%',margin:0 }} >
-          <AppBar position="static" color="secondary">
+      <nav style={{marginBottom:"30vh"}}>
+        <Box sx={{ width: "100%", margin: 0 }}>
+          <AppBar position="fixed" color="secondary">
             <Toolbar>
-              <Quiz />
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 10 }}
-                onClick={()=>{
-                  
-                  navigate("Profile")}}
-                
-              ></IconButton>
-              <Typography variant='button' component="div" sx={{ flexGrow: 1 }}>
+              
+              
+              <div style={{marginRight:"3vh"}}><Avatar  onClick={() => {
+                  navigate("Profile");
+                }} /></div>
+              <Typography variant="button" component="div" sx={{ flexGrow: 1 }}>
                 <Link to="/">Home</Link>
               </Typography>
-              <Typography variant='button' component="div" sx={{ flexGrow: 1 }}>
+              <Typography variant="button" component="div" sx={{ flexGrow: 1 }}>
                 <Link to="/Login">Login</Link>
               </Typography>
-              <Typography variant='button' component="div" >
+              <Typography variant="button" component="div">
                 <Link to="Options">Options</Link>
               </Typography>
-              {/*<Typography variant='button' component="div" >
-                <Link to="Profile">Profile</Link>
-  </Typography>*/}
-              
+             
             </Toolbar>
           </AppBar>
         </Box>

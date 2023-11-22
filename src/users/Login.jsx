@@ -1,12 +1,10 @@
 import { Button, Typography } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import TextField from "@mui/material/TextField";
-
-import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
-import { pink } from "@mui/material/colors";
 import { useState } from "react";
 import { addToLocalStorage, returnAll } from "./utils";
+import "./login.css";
 
 function Login() {
   const [userName, setUserName] = useState("");
@@ -23,7 +21,8 @@ function Login() {
         flug = !flug;
         sessionStorage.setItem("valid", "true");
         addToLocalStorage(user);
-        navigate("/Profile", { state: user });
+        userName === "hillel" && sessionStorage.setItem("admin", "true");
+        navigate("/Profile");
       }
     });
     if (flug) {

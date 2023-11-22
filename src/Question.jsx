@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Typography from '@mui/material/Typography';
+import Typography from "@mui/material/Typography";
 
 const Question = ({ data, index, setScoreVal, updateCount, next }) => {
   const [flug, setFlug] = useState(false);
@@ -19,13 +19,12 @@ const Question = ({ data, index, setScoreVal, updateCount, next }) => {
   return (
     <div className="answers">
       {data.length !== 0 && (
-        <div key={data[index].key} >
-          <Typography variant="h6" >
-          {data[index].question}
-          </Typography>
-          <div >
+        <div key={data[index].key}>
+          <Typography variant="h6">{data[index].question}</Typography>
+          <div>
             {data[index].answers.map((ans, indexx) => (
-              <button className="answersbtn"
+              <button
+                className="answersbtn"
                 value={ans}
                 key={indexx}
                 disabled={flug}
@@ -35,15 +34,18 @@ const Question = ({ data, index, setScoreVal, updateCount, next }) => {
               </button>
             ))}
           </div>
-          {flug && <Typography variant="subtitle1" >Correct Answer: {data[index].correct}</Typography>}
+          {flug && (
+            <Typography variant="subtitle1">
+              Correct Answer: {data[index].correct}
+            </Typography>
+          )}
           {console.log("flug: " + flug)}
           {index < data.length - 1 && (
-            <div >
+            <div>
               <button disabled={!flug} onClick={() => next()} className="next">
-              Next
-            </button>
+                Next
+              </button>
             </div>
-            
           )}
         </div>
       )}

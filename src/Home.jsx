@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Box, Typography, Button, Container } from "@mui/material";
 
-import { Box, Typography, Button, Paper, Container } from "@mui/material";
 export default function Home() {
   return (
     <div className="homepage">
@@ -15,17 +14,16 @@ export default function Home() {
             of interesting quizes in subjects that you like. in this website I
             (The devloper) use a trivia API.
           </Typography>
-          <a  className="atag" href="https://opentdb.com/api_config.php">Trivia API</a>
+          <a  className="atag" href="https://opentdb.com/api_config.php">
+            Trivia API
+          </a>
         </Container>
-        {/* <Link to="/Option">*/}
-        <Link to="/Login">
+        <Link   to="/Login">
           <Button color="secondary" variant="contained" margintop="5%">
             Try Quiz
           </Button>
         </Link>
       </Box>
     </div>
-      
-    
   );
 }
